@@ -3,12 +3,13 @@
     max-width: 768px;
     margin:0 auto; 
     min-width: 320px;
-    background: url(../images/login_bg.png) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    background: url(../images/login_back2.png) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
    -moz-background-size:100% 100%;
     background-size:100% 100%;
-    min-height:480px; 
+    min-height:667px;
 }
 .login-title{
+    padding-top: 80px;
     position: relative;
     width:100%;
     height:80px;

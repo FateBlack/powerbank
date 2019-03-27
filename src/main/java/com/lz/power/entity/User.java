@@ -19,10 +19,12 @@ public class User {
     @NotNull
     private String phone;
 
-    @NotNull
     private String password;
 
-    private Integer code;
+    private Integer codes;
+
+    //是否注册成功, 1失败,2成功
+    private Integer checks;
 
     public Integer getId() {
         return id;
@@ -33,21 +35,12 @@ public class User {
     }
 
 
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
     }
 
     public String getPhone() {
@@ -58,13 +51,30 @@ public class User {
         this.phone = phone;
     }
 
+    public Integer getChecks() {
+        return checks;
+    }
+
+    public void setChecks(Integer checks) {
+        this.checks = checks;
+    }
+
+    public Integer getCodes() {
+        return codes;
+    }
+
+    public void setCodes(Integer codes) {
+        this.codes = codes;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", phone=" + phone +
+                ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
-                ", code=" + code +
+                ", codes=" + codes +
+                ", checks=" + checks +
                 '}';
     }
 }

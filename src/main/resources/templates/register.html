@@ -20,7 +20,7 @@
             <ul>
                 <p id="err_msg"></p>
                 <li><i class="un"><img src="/static/js/images/user_name.png"></i><input class="username" type="text" id="phone" name="phone" placeholder="请输入手机号" /></li>
-                <li><i class="yz"><img src="/static/js/images/msg.png"></i><input class="yzm" type="text" id="code" name="code" placeholder="请输入手机验证码" /><input type="button" id="send" value="获取验证码" /></li>
+                <li><i class="yz"><img src="/static/js/images/msg.png"></i><input class="yzm" type="text" id="codes" name="codes" placeholder="请输入手机验证码" /><input type="button" id="send" name="send" value="获取验证码" /></li>
                 <li><i class="pw"><img src="/static/js/images/pwd.png"></i><input class="pwd" type="password" id="password" name="password" placeholder="请输入密码" /></li>
                 <!--<li><i class="pw2"><img src="/static/js/images/pwd.png"></i><input class="pwd2" type="password" placeholder="请输入确认密码" /></li>-->
                 <div class="queren"><input class="fx" type="checkbox" checked="checked" /><p>我已阅读并同意《用户协议》</p></div>
@@ -41,16 +41,44 @@
                 url:"../user/register",
                 data:{
                     phone:$("#phone").val(),
-                    code:$("#code").val(),
+                    codes:$("#codes").val(),
                     password:$("#password").val()
                 },
-                success:function(){
-                    alert("注册成功");
-                    window.location.href="/user/userlogin";
+                success:function(res){
+
+                    if (res.code == 0) {
+                        alert("注册成功");
+                        window.location.href="/user/userlogin";
+                    }else {
+                        alert("验证码不正确")
+                    }
                 },
-                error:function(jqXHR){
+                error:function(){
                     alert("注册失败");
-                    $("#test").html("邮箱已重复，或邮箱填写错误:"+jqXHR.status);
+                }
+            });
+        })
+
+
+        //发送验证码
+        $("#send").click(function(e){
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                dataType: "json",
+                url:"../user/sendsms",
+                data:{
+                    phone:$("#phone").val(),
+                },
+                success:function(res){
+                    if (res.code == 0) {
+                        alert("获取成功");
+                    }else {
+                        alert("手机号码不正确")
+                    }
+                },
+                error:function(){
+                    alert("获取失败");
                 }
             });
         })

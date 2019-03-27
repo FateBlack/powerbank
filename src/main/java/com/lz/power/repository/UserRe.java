@@ -9,5 +9,7 @@ import java.util.List;
  * Created by 白 on 2019/3/19.
  */
 public interface UserRe extends JpaRepository<User, Integer> {
-    List<User> findByPhoneAndPassword(String phone, String password);
+    List<User> findByPhoneAndPasswordAndChecks(String phone, String password, int checks);
+
+    List<User> findByPhoneAndCodes(String phone, int codes);
 }

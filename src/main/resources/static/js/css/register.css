@@ -3,12 +3,14 @@
     max-width: 768px;
     margin:0 auto; 
     min-width: 320px;
-    background: url(../images/reg_bg.png) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    background: url(../images/reg_back2.png) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
    -moz-background-size:100% 100%;
     background-size:100% 100%;
-    min-height:480px; 
+    min-height:667px;
 }
 #layout span{
+
+    padding-top: 80px;
     display: block;
     position: relative;
     text-align: center;
