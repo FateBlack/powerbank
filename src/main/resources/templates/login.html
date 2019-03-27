@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>登陆页面</title>
+         <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <link href="/static/js/css/login.css" type="text/css" rel="stylesheet">
+        <link href="/static/js/css/global.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/login.js"></script>
+    </head>
+    <body>
+        <div class="login">
+            <div class="login-title"><p>登录</p>
+                <i></i>
+            </div>
+            <form>
+            <div class="login-bar">
+                <ul>
+                    <li><img src="/static/js/images/login_user.png"><input type="text" id="phone" name="phone" class="text" placeholder="手机号" /></li>
+                    <li><img src="/static/js/images/login_pwd.png"><input type="password" class="psd" id="password" name="password" placeholder="输入密码" /></li>
+                </ul>
+            </div>
+            <div class="login-btn">
+                <button class="submit" type="submit" id="postBtn">登陆</button>
+                <a href="/user/userReg"><div class="login-reg"><p>没有账号，先注册</p></div></a>
+            </div>
+            </form>
+        </div>
+		<div style="text-align:center;">
+
+
+            <script>
+                $("#postBtn").click(function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        type:'POST',
+                        dataType: "json",
+                        url:"../user/login",
+                        data:{
+                            phone:$("#phone").val(),
+                            password:$("#password").val()
+                        },
+                        success:function(){
+                            alert("登陆中");
+                            window.location.href="/user/index";
+                        },
+                        error:function(jqXHR){
+                            alert("登陆失败");
+                           /* $("#test").html("邮箱已重复，或邮箱填写错误:"+jqXHR.status);*/
+                        }
+                    });
+                })
+
+            </script>
+
+
+</div>
+
+    </body>
+</html>

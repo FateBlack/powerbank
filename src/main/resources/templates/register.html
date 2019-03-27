@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>注册页面</title>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <link href="/static/js/css/register.css" type="text/css" rel="stylesheet">
+        <link href="/static/js/css/global.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="/text/javascript" src="/static/js/register.js"></script>
+    </head>
+    <body>
+        <div id="layout">
+            <span>注册</span>
+            <form>
+            <ul>
+                <p id="err_msg"></p>
+                <li><i class="un"><img src="/static/js/images/user_name.png"></i><input class="username" type="text" id="phone" name="phone" placeholder="请输入手机号" /></li>
+                <li><i class="yz"><img src="/static/js/images/msg.png"></i><input class="yzm" type="text" id="code" name="code" placeholder="请输入手机验证码" /><input type="button" id="send" value="获取验证码" /></li>
+                <li><i class="pw"><img src="/static/js/images/pwd.png"></i><input class="pwd" type="password" id="password" name="password" placeholder="请输入密码" /></li>
+                <!--<li><i class="pw2"><img src="/static/js/images/pwd.png"></i><input class="pwd2" type="password" placeholder="请输入确认密码" /></li>-->
+                <div class="queren"><input class="fx" type="checkbox" checked="checked" /><p>我已阅读并同意《用户协议》</p></div>
+            </ul>
+                <div class="reg_btn">
+                    <button class="submit" type="submit" id="postBtn">注册</button>
+                    <a href="/user/userlogin"><div class="reg-login"><p>已有帐号，立即登陆</p></div></a>
+                </div>
+            </form>
+        </div>
+
+    <script>
+        $("#postBtn").click(function(e){
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                dataType: "json",
+                url:"../user/register",
+                data:{
+                    phone:$("#phone").val(),
+                    code:$("#code").val(),
+                    password:$("#password").val()
+                },
+                success:function(){
+                    alert("注册成功");
+                    window.location.href="/user/userlogin";
+                },
+                error:function(jqXHR){
+                    alert("注册失败");
+                    $("#test").html("邮箱已重复，或邮箱填写错误:"+jqXHR.status);
+                }
+            });
+        })
+
+    </script>
+
+    </body>
+</html>
