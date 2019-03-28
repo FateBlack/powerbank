@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 
     // 验证是否为 大陆手机号
     private boolean isPhone(String phone) {
-        String regExp = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
+        String regExp = "^((13[0-9])|(15[0-9])|(18[0-9])|(17[0-9])|(14[0-9])|(16[0-9]))\\d{8}$";
 
         //港台版本
 //        String regExp = "^(5|6|8|9)\\d{7}$";
