@@ -28,5 +28,15 @@ public class AllController {
         return new ModelAndView("register.html");
     }
 
+    @GetMapping("join")
+    public ModelAndView join() {
+        return new ModelAndView("join.html");
+    }
+
+    @GetMapping("produce")
+    public ModelAndView produce() {
+        return new ModelAndView("produce.html");
+    }
+
 
 }

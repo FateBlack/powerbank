@@ -19,6 +19,8 @@ public class User {
     @NotNull
     private String phone;
 
+    private String username;
+
     private String password;
 
     private Integer codes;
@@ -65,6 +67,14 @@ public class User {
 
     public void setCodes(Integer codes) {
         this.codes = codes;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override

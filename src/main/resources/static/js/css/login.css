@@ -3,7 +3,7 @@
     max-width: 768px;
     margin:0 auto; 
     min-width: 320px;
-    background: url(../images/login_back2.png) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    background: url(../images/log2.jpg) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
    -moz-background-size:100% 100%;
     background-size:100% 100%;
     min-height:667px;
@@ -17,7 +17,7 @@
     text-align: center;
     font-size: 1.7em;
     font-family: "Microsoft YaHei";
-    color:#fff;
+    color:#000000;
 }
 .login-title i{
     position: absolute;
@@ -33,6 +33,7 @@
     position: relative;
     width:100%;
     height:30%;
+    color:#000000;
     
 }
 .login-bar ul li{
@@ -48,7 +49,9 @@
     height:25px;
     border:none;
     background:none;
-    color:#fff;
+    color:#000000;
+    font-weight:bold;
+
 }
 .login-bar .psd{
     position: absolute;
@@ -58,27 +61,28 @@
     height:25px;
     border:none;
     background:none;
-    color:#fff;
+    color:#000000;
+    font-weight:bold;
 }
 input:focus {
     outline:none;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #fff;  
+    color: #000000;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #fff;
+    color: #000000;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-    color: #fff;
+    color: #000000;
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-    color: #fff;
+    color: #000000;
 }
 .login-btn{
     width:100%;
@@ -111,6 +115,10 @@ textarea::-webkit-input-placeholder {
     font-size: 14px;
     border-radius: 3px;
     display: block;
+}
+
+.test{
+    color:#000000;
 }
 
 

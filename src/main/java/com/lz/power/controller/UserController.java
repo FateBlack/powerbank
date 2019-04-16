@@ -43,6 +43,7 @@ public class UserController {
         User userB = userList.get(0);
         userB.setChecks(2);
         userB.setPassword(user.getPassword());
+        userB.setUsername(user.getUsername());
 
         userRe.save(userB);
 
@@ -93,6 +94,5 @@ public class UserController {
         }
         return ResultVOUtil.success();
     }
-
 
 }

@@ -15,14 +15,15 @@
     </head>
     <body>
         <div class="login">
-            <div class="login-title"><p>登录</p>
+            <div class="login-title"><p><!--登录--></p>
                 <i></i>
             </div>
+
             <form>
             <div class="login-bar">
                 <ul>
-                    <li><img src="/static/js/images/login_user.png"><input type="text" id="phone" name="phone" class="text" placeholder="手机号" /></li>
-                    <li><img src="/static/js/images/login_pwd.png"><input type="password" class="psd" id="password" name="password" placeholder="输入密码" /></li>
+                    <li><img src="/static/js/images/login_user.png"><input type="text" id="phone" name="phone"  class="text" placeholder="手机号" /></li>
+                    <li><img src="/static/js/images/login_pwd.png"><input type="password" class="psd" id="password"  name="password"  placeholder="输入密码" /></li>
                 </ul>
             </div>
             <div class="login-btn">
@@ -35,6 +36,18 @@
 
 
             <script>
+                var user=document.getElementsByTagName('input')[0];
+                var pass=document.getElementsByTagName('input')[1];
+                var localuser=localStorage.getItem('user');
+                var localpass=localStorage.getItem('pass');
+                if(localuser !==''&&localpass!==''){
+                    console.log('getlocalstorage'+localuser+localpass)
+                     user.value=localuser;
+                     pass.value=localpass;
+
+                }else{
+
+                }
                 $("#postBtn").click(function(e){
                     e.preventDefault();
                     $.ajax({
@@ -46,9 +59,12 @@
                             password:$("#password").val()
                         },
                         success:function(res){
-
                             if (res.code == 0) {
-                                alert("登陆成功");
+                                console.log(user.value,pass.value);
+                                localStorage.setItem('user', user.value);
+                                localStorage.setItem('pass', pass.value);
+                                console.log('setlocalStorage'+localStorage.getItem('user'))
+                                alert("欢迎加入咻电充电宝");
                                 window.location.href="/user/index";
                             }else {
                                 alert("用户名或密码错误")
