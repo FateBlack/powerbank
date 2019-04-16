@@ -39,4 +39,35 @@ public class AllController {
     }
 
 
+    /**
+     *  第二套 同等页面 ，经销商B
+     * @return
+     */
+
+    @GetMapping("indexB")
+    public ModelAndView indexB() {
+
+        return new ModelAndView("indexB.html");
+    }
+
+    @GetMapping("userloginB")
+    public ModelAndView userloginB() {
+        return new ModelAndView("loginB.html");
+    }
+
+    @GetMapping("userRegB")
+    public ModelAndView userRegB() {
+        return new ModelAndView("registerB.html");
+    }
+
+    @GetMapping("joinB")
+    public ModelAndView joinB() {
+        return new ModelAndView("joinB.html");
+    }
+
+    @GetMapping("produceB")
+    public ModelAndView produceB() {
+        return new ModelAndView("produceB.html");
+    }
+
 }
